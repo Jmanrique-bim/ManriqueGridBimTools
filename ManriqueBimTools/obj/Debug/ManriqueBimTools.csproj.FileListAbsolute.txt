@@ -1,0 +1,8 @@
+C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueBimTools\obj\Debug\ManriqueBimTools.csproj.AssemblyReference.cache
+C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueBimTools\obj\Debug\ManriqueBimTools.csproj.GenerateResource.cache
+C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueBimTools\bin\Debug\ManriqueBimTools.dll
+C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueBimTools\bin\Debug\ManriqueBimTools.pdb
+C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueBimTools\obj\Debug\ManriqueBimTools.Properties.Resources.resources
+C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueBimTools\obj\Debug\ManriqueBimTools.csproj.CoreCompileInputs.cache
+C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueBimTools\obj\Debug\ManriqueBimTools.dll
+C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueBimTools\obj\Debug\ManriqueBimTools.pdb

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<!-- 1). I do only need Application type, as that App.cs will execute the command.cs -->
+		<Name>ManriqueTools Revit Add-ins</Name>
+		<!-- 2). name of the aplication, can remain the same for all aplications -->
+		<Description>Altia internal tools for Autodesk Revit</Description>
+		<!-- 3). Only used for command Type -->
+		<Assembly>ManriqueBimTools.dll</Assembly>
+		<!-- 4). dll. location path or the name file -->
+		<FullClassName>ManriqueBimTools.ManriqueRevitApp</FullClassName>
+		<!-- 5). the full class name for the Application.cs file that will execute the command.cs -->
+		<ClientId>c72a415c-7ec9-4b44-a69b-ac63eae4ac33</ClientId>
+		<!-- 6). A unique GUID for each registered application or command-->
+		<VendorId>ADSK</VendorId>
+		<!-- 7). Register your vendor id string with Autodesk at http://www.autodesk.com/symbreg-->
+	</AddIn>
+</RevitAddIns>
