@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*"
+			 Name="ManriqueToolsInstaller"
+			 Language="1033"
+			 Version="1.0.0.0"
+			 Manufacturer="Juan Pablo Manrique"
+			 UpgradeCode="c8b04e93-40c6-494c-8974-97c021a692c2">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+		<Feature Id="ProductFeature" Title="ManriqueToolsInstaller" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+	</Product>
+
+	<!-- Directory definitions -->
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<!-- CommonAppDataFolder maps to C:\ProgramData -->
+			<Directory Id="CommonAppDataFolder">
+				<Directory Id="AutodeskFolder" Name="Autodesk">
+					<Directory Id="ApplicationPluginsFolder" Name="ApplicationPlugins">
+						<!-- Bundle folder for your add-in -->
+						<Directory Id="MyBundleFolder" Name="ManriqueTools.bundle">
+							<!-- The Contents folder holds the manifest (.addin file) -->
+							<Directory Id="BundleContents" Name="Contents" />
+							<!-- The Sources folder holds your DLL and PDB -->
+							<Directory Id="BundleSources" Name="Sources" />
+						</Directory>
+					</Directory>
+				</Directory>
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<!-- Component definitions -->
+	<Fragment>
+		<ComponentGroup Id="ProductComponents">
+			<!-- Component for the DLL -->
+			<Component Id="ProductDll" Directory="BundleSources">
+				<File Id="ProductDllFile" Source="$(var.ManriqueBimTools.TargetPath)" KeyPath="yes" />
+			</Component>
+			<!-- Component for the PDB file -->
+			<Component Id="ProductPdb" Directory="BundleSources">
+				<File Id="ProductPdbFile" Source="C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueBimTools\bin\Release\ManriqueBimTools.pdb" KeyPath="yes" />
+			</Component>
+			<!-- Component for the .addin file -->
+			<Component Id="ProductAddin" Directory="BundleContents">
+				<File Id="ProductAddinFile" Source="C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueBimTools\ManriqueBimTools.addin" KeyPath="yes" />
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+</Wix>

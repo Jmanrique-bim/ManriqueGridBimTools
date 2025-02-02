@@ -1,0 +1,3 @@
+C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueToolsInstaller\bin\Release\cab1.cab
+C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueToolsInstaller\bin\Release\ManriqueToolsInstaller.msi
+C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueToolsInstaller\bin\Release\ManriqueToolsInstaller.wixpdb

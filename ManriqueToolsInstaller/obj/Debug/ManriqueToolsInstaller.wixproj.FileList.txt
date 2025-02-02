@@ -1,0 +1,7 @@
+C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueToolsInstaller\bin\Debug\cab1.cab
+C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueToolsInstaller\bin\Debug\ManriqueToolsInstaller.msi
+C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueToolsInstaller\bin\Debug\ManriqueToolsInstaller.wixpdb
+obj\Debug\Product.wixobj
+obj\Debug\ManriqueToolsInstaller.wixproj.BindContentsFileListnull.txt
+obj\Debug\ManriqueToolsInstaller.wixproj.BindOutputsFileListnull.txt
+obj\Debug\ManriqueToolsInstaller.wixproj.BindBuiltOutputsFileListnull.txt
