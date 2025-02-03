@@ -104,11 +104,11 @@ namespace ManriqueBimTools
             // Order based on the user’s selection:
             if (numberOnXAxis)
             {
-                sortedElements = selectedElements.OrderBy(e => GridHelper.GetElementLocation(e)?.X ?? 0).ToList();
+                sortedElements = selectedElements.OrderBy(e => GridHelper.GetElementLocation(e)?.Y ?? 0).ToList();
             }
             else if (numberOnYAxis)
             {
-                sortedElements = selectedElements.OrderBy(e => GridHelper.GetElementLocation(e)?.Y ?? 0).ToList();
+                sortedElements = selectedElements.OrderBy(e => GridHelper.GetElementLocation(e)?.X ?? 0).ToList();
             }
             else if (numberByProximity)
             {

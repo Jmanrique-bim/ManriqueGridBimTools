@@ -24,19 +24,8 @@ namespace ManriqueBimTools
             {
                 t.Start();
 
-                // First, check if the parameter binding already exists in the document.
-                DefinitionBindingMapIterator iter = doc.ParameterBindings.ForwardIterator();
-                while (iter.MoveNext())
-                {
-                    Definition def = iter.Key as Definition;
-                    if (def != null && def.Name.Equals(paramName, StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        t.Commit();
-                        return;
-                    }
-                }
-
                 Application app = doc.Application;
+
                 // Open the shared parameter file.
                 DefinitionFile defFile = app.OpenSharedParameterFile();
                 if (defFile == null)
@@ -47,13 +36,9 @@ namespace ManriqueBimTools
                 }
 
                 // Get (or create) a group named "ManriqueBimTools" in the shared parameter file.
-                DefinitionGroup group = defFile.Groups.get_Item("ManriqueBimTools");
-                if (group == null)
-                {
-                    group = defFile.Groups.Create("ManriqueBimTools");
-                }
+                DefinitionGroup group = defFile.Groups.get_Item("ManriqueBimTools") ?? defFile.Groups.Create("ManriqueBimTools");
 
-                // Check if a definition with the same name already exists in the group.
+                // Check if the parameter already exists in the shared parameter group.
                 Definition definition = null;
                 foreach (Definition def in group.Definitions)
                 {
@@ -76,20 +61,52 @@ namespace ManriqueBimTools
                     definition = group.Definitions.Create(options);
                 }
 
-                // Create an instance binding for the specified categories.
-                InstanceBinding binding = app.Create.NewInstanceBinding(catSet);
+                // Get the existing bindings for each category in catSet
+                DefinitionBindingMapIterator iter = doc.ParameterBindings.ForwardIterator();
+                InstanceBinding existingBinding = null;
 
-                // Insert the new binding into the document using the two-argument Insert.
-                bool success = doc.ParameterBindings.Insert(definition, binding);
-                if (!success)
+                while (iter.MoveNext())
                 {
-                    TaskDialog.Show("Error", "Could not bind parameter: " + paramName);
+                    Definition def = iter.Key as Definition;
+                    if (def != null && def.Name.Equals(paramName, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        existingBinding = iter.Current as InstanceBinding;
+                        break;
+                    }
+                }
+
+                // If an existing binding was found, update its categories
+                if (existingBinding != null)
+                {
+                    CategorySet existingCatSet = existingBinding.Categories;
+                    bool updated = false;
+
+                    foreach (Category cat in catSet)
+                    {
+                        if (!existingCatSet.Contains(cat))
+                        {
+                            existingCatSet.Insert(cat);
+                            updated = true;
+                        }
+                    }
+
+                    if (updated)
+                    {
+                        doc.ParameterBindings.ReInsert(definition, existingBinding, BuiltInParameterGroup.PG_IDENTITY_DATA);
+                    }
                 }
                 else
                 {
-                    // Update the parameter group to Identity Data.
-                    doc.ParameterBindings.ReInsert(definition, binding, BuiltInParameterGroup.PG_IDENTITY_DATA);
+                    // Create a new instance binding for the specified categories.
+                    InstanceBinding newBinding = app.Create.NewInstanceBinding(catSet);
+                    bool success = doc.ParameterBindings.Insert(definition, newBinding, BuiltInParameterGroup.PG_IDENTITY_DATA);
+
+                    if (!success)
+                    {
+                        TaskDialog.Show("Error", "Could not bind parameter: " + paramName);
+                    }
                 }
+
                 t.Commit();
             }
         }
