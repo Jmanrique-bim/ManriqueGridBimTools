@@ -18,7 +18,11 @@ namespace ManriqueBimTools
             UIApplication uiapp = commandData.Application;
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Document doc = uidoc.Document;
-            // Prompt the user to select the first instance for numbering.
+
+            // Determine the first instance.
+            Element firstElem = null;
+            
+            // Fallback: prompt the user.
             Reference firstRef;
             try
             {
@@ -28,12 +32,26 @@ namespace ManriqueBimTools
             {
                 return Result.Cancelled;
             }
-            Element firstElem = doc.GetElement(firstRef);
+            firstElem = doc.GetElement(firstRef);
+            
             if (firstElem == null)
             {
                 TaskDialog.Show("Error", "Could not retrieve the selected element.");
                 return Result.Failed;
             }
+
+            LocateInstanceByGridForm form = new LocateInstanceByGridForm(uidoc);
+
+            // Show the dialog modally.
+            bool? result = form.ShowDialog();
+
+            if (result != true) return Result.Cancelled;
+
+            // Retrieve the options selected by the user.
+            bool numberOnXAxis = form.NumberOnXAxis;
+            bool numberOnYAxis = form.NumberOnYAxis;
+            bool numberByProximity = form.NumberByProximity;
+            bool firstInstanceSelected = form.FirstInstanceSelected;
 
             // Get the category of the first element.
             BuiltInCategory builtCat = firstElem.Category.BuiltInCategory;
@@ -82,11 +100,26 @@ namespace ManriqueBimTools
                 return Result.Failed;
             }
 
-            // Sort the collected family instances by distance from the first element.
-            List<Element> sortedElements = selectedElements
-                .OrderBy(e => GridHelper.GetElementLocation(e).DistanceTo(startPt))
-                .ToList();
-           
+            List<Element> sortedElements = null;
+            // Order based on the user’s selection:
+            if (numberOnXAxis)
+            {
+                sortedElements = selectedElements.OrderBy(e => GridHelper.GetElementLocation(e)?.X ?? 0).ToList();
+            }
+            else if (numberOnYAxis)
+            {
+                sortedElements = selectedElements.OrderBy(e => GridHelper.GetElementLocation(e)?.Y ?? 0).ToList();
+            }
+            else if (numberByProximity)
+            {
+                sortedElements = selectedElements.OrderBy(e => GridHelper.GetElementLocation(e)?.DistanceTo(startPt) ?? double.MaxValue).ToList();
+            }
+            else
+            {
+                // Default to proximity if none is selected.
+                sortedElements = selectedElements.OrderBy(e => GridHelper.GetElementLocation(e)?.DistanceTo(startPt) ?? double.MaxValue).ToList();
+            }
+
             // Start a transaction to update the parameters.
             using (Transaction trans = new Transaction(doc, "Assign Grid Square and Number"))
             {

@@ -1,6 +1,10 @@
 C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueBimTools\bin\Release\ManriqueBimTools.dll
 C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueBimTools\bin\Release\ManriqueBimTools.pdb
 C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueBimTools\obj\Release\ManriqueBimTools.csproj.AssemblyReference.cache
+C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueBimTools\obj\Release\ManriqueTools.Addins\Scr\CoordinationTools\Viewer\LocateInstanceByGridForm.baml
+C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueBimTools\obj\Release\ManriqueTools.Addins\Scr\CoordinationTools\Viewer\LocateInstanceByGridForm.g.cs
+C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueBimTools\obj\Release\ManriqueBimTools_MarkupCompile.cache
+C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueBimTools\obj\Release\ManriqueBimTools.g.resources
 C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueBimTools\obj\Release\ManriqueBimTools.Properties.Resources.resources
 C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueBimTools\obj\Release\ManriqueBimTools.csproj.GenerateResource.cache
 C:\Users\juan5\OneDrive\Desktop\Personal\ManriqueBimTools\ManriqueBIMTools\ManriqueBimTools\ManriqueBimTools\obj\Release\ManriqueBimTools.csproj.CoreCompileInputs.cache

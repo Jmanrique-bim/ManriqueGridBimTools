@@ -86,7 +86,7 @@ namespace ManriqueBimTools
             Image buttonImage = Properties.Resources.icons8_grid_24;
             ImageSource buttonSource = GetImageSource(buttonImage);
             PushButtonData testButtonData = new PushButtonData("Grid-Based Numbering", "Grid-Based Numbering", assemblyPath, typeof(locateInstanceByGrid).FullName);
-            testButtonData.ToolTip = "Locate instenaces by grid";
+            testButtonData.ToolTip = "Locate instanaces by grid";
             testButtonData.Image = buttonSource;
             testButtonData.LargeImage = buttonSource;
 

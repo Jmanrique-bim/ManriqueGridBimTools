@@ -1,0 +1,16 @@
+﻿<Window x:Class="ManriqueBimTools.LocateInstanceByGridForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Grid Numbering Options" Height="180" Width="300">
+    <Grid Margin="10">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <CheckBox x:Name="chkNumberXAxis" Content="Number on X Axis" Margin="0,5"/>
+            <CheckBox x:Name="chkNumberYAxis" Content="Number on Y Axis" Margin="0,5"/>
+            <CheckBox x:Name="chkNumberByProximity" Content="Number by Proximity" Margin="0,5"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <Button x:Name="btnOK" Content="OK" Width="75" Margin="5" Click="btnOK_Click"/>
+                <Button x:Name="btnCancel" Content="Cancel" Width="75" Margin="5" Click="btnCancel_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
